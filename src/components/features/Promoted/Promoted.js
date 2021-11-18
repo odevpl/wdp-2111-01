@@ -55,13 +55,13 @@ class Promoted extends React.Component {
       <div className={styles.root}>
         <div className='container'>
           <div className='row'>
-            <div className={'col-4 ' + styles.left}>
+            <div className={`col col-md-12 col-lg-4 ${styles.left}`}>
               <ProductSlider
                 promotedProducts={this.props.promotedProducts}
                 settings={this.state.settings.sliderLeft}
               />
             </div>
-            <div className={'col-8 ' + styles.right}>
+            <div className={`col col-md-12 col-lg-8 ${styles.right}`}>
               <ProductSlider
                 promotedProducts={this.props.promotedProducts}
                 settings={this.state.settings.sliderRight}
