@@ -8,7 +8,10 @@ import Promoted from '../../features/Promoted/PromotedContainer';
 import React from 'react';
 import styles from './Homepage.module.scss';
 import Promotions from '../../features/Promotions/Promotions';
-// import Brands from '../../layout/Brands/Brands';
+import Brands from '../../layout/Brands/BrandsContainer';
+
+
+
 
 const Homepage = () => (
   <div className={styles.root}>
@@ -16,9 +19,9 @@ const Homepage = () => (
     <FeatureBoxes />
     <Promotions />
     <NewFurniture />
-    <Gallery />
     <BlogHomepage />
-    {/* <Brands />  nie działa poprawnie*/}
+    <Gallery />
+    <Brands />
     <Feedback />
     <Chatbox />
   </div>

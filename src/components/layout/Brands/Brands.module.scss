@@ -2,12 +2,25 @@
 
 .root {
   width: 100%;
-  margin-left: 25px;
   padding: 3rem 0 4rem 0;
 
   .topnbottSliderWrapper {
     padding: 1rem 0;
     border-top: 1px solid lightgrey;
     border-bottom: 1px solid lightgrey;
+  }
+
+  .box{
+    padding-top: 10px;
+  }
+
+  .right{
+    margin-right: 0;
+    object-fit: cover;
+  }
+
+  .left{
+    margin-left: 0;
+    object-fit: cover;
   }
 }
