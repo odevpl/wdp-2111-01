@@ -8,7 +8,8 @@ import Promoted from '../../features/Promoted/PromotedContainer';
 import React from 'react';
 import styles from './Homepage.module.scss';
 import Promotions from '../../features/Promotions/Promotions';
-import Gallery from '../../features/Gallery/GalleryContainer';
+import Brands from '../../layout/Brands/BrandsContainer';
+
 
 
 const Homepage = () => (
@@ -17,9 +18,9 @@ const Homepage = () => (
     <FeatureBoxes />
     <Promotions />
     <NewFurniture />
-    <Gallery />
     <BlogHomepage />
     <Gallery />
+    <Brands />
     <Feedback />
     <Chatbox />
   </div>

@@ -11,16 +11,22 @@ const Brands = ({ brands }) => {
   const [activePage, ActivePage] = useState(0);
 
   let newRwd = 0;
+  let columnNumber = 'col-2';
   const rwd = window.innerWidth;
-  if (rwd >= 576 && rwd < 768) {
+  if (rwd >= 1000 && rwd < 1300) {
+    columnNumber = 'col-3';
     newRwd = 4;
-  } else if (rwd >= 0 && rwd < 576) {
+  } else if (rwd >= 800 && rwd < 1000) {
+    columnNumber = 'col-4';
+    newRwd = 3;
+  } else if (rwd >= 0 && rwd < 800) {
+    columnNumber = 'col-6';
     newRwd = 2;
   } else {
+    columnNumber = 'col-2.5';
     newRwd = 6;
   }
 
-  //sdf/sdfsfdsfds
   const pagesCount = Math.ceil(brands.length / newRwd);
   const leftAction = e => {
     e.preventDefault();
@@ -40,25 +46,23 @@ const Brands = ({ brands }) => {
             'row no-gutters justify-content-between ' + styles.topnbottSliderWrapper
           }
         >
-          <div className={`col-1`}>
+          <div className={styles.left}>
             <Button className={styles.button} variant='carousel' onClick={leftAction}>
               <FontAwesomeIcon icon={faChevronLeft}></FontAwesomeIcon>
             </Button>
           </div>
-          <div className='col-10'>
+          <div className={'col-10 ' + styles.box}>
             <div className='row justify-content-between'>
-              {/* {brands.slice(newActivePage * newRwd, (newActivePage + 1) * newRwd).map(item => (
-                <div key={item.id} className='col-2'> */}
               {brands
                 .slice(activePage * newRwd, (activePage + 1) * newRwd)
                 .map(item => (
-                  <div key={item.id} className='col-2'>
+                  <div key={item.id} className={columnNumber} >
                     <BrandsSlider {...item} />
                   </div>
                 ))}
             </div>
           </div>
-          <div className={`col-1`}>
+          <div className={styles.right}>
             <Button className={styles.button} variant='carousel' onClick={rightAction}>
               <FontAwesomeIcon icon={faChevronRight}></FontAwesomeIcon>
             </Button>
