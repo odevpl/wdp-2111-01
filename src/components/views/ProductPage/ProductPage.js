@@ -22,6 +22,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import Button from '../../common/Button/Button';
 import RatingStars from '../../common/RatingStars/RatingStarsContainer';
+import ProductReviews from '../../features/ProductReviews/ProductReviews';
 
 const ProductPage = (id, stars, userRating) => (
   <div className={styles.root}>
@@ -140,6 +141,7 @@ const ProductPage = (id, stars, userRating) => (
               <p>Availability:</p>
               <div>In Stock</div>
             </div>
+
             <div className={'row ' + styles.availabilityContainer}>
               <p>Category:</p>
               <div>Furniture</div>
@@ -194,6 +196,9 @@ const ProductPage = (id, stars, userRating) => (
             </div>
           </div>
         </div>
+      </div>
+      <div>
+        <ProductReviews />
       </div>
     </div>
   </div>

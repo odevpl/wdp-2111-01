@@ -12,6 +12,7 @@ import Brands from '../../layout/Brands/BrandsContainer';
 
 
 
+
 const Homepage = () => (
   <div className={styles.root}>
     <Promoted />

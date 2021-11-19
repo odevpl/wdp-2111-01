@@ -1,0 +1,101 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  padding: $base-padding 0;
+
+  .wrapper {
+    border: solid 1px grey;
+
+    .tabs ul {
+      list-style-type: none;
+      display: flex;
+      flex-direction: row;
+      padding-left: 0;
+
+
+      li {
+        padding: 15px 25px;
+        font-weight: 500;
+        border-right: solid 1px grey;
+        border-bottom: solid 1px grey;
+
+        a {
+          color: black;
+          text-decoration: none;
+        }
+      }
+
+      .active {
+        border-bottom: none;
+
+        a {
+          color: $primary;
+        }
+      }
+    }
+
+    .tabContent {
+      margin: 30px 35px;
+
+      p {
+        font-size: 14px;
+        font-weight: 300;
+        color: rgb(44, 44, 44);
+      }
+
+      .add {
+        font-size: 15px;
+        color: black;
+        font-weight: 400;
+        padding: 15px 0;
+      }
+
+      .rating {
+        display: flex;
+        flex-direction: row;
+        padding-bottom: 10px;
+
+        .stars {
+          padding: 0 10px;
+          font-size: 13px;
+
+          a {
+            text-decoration: none;
+            color: rgb(207, 135, 1);
+          }
+        }
+      }
+
+      form {
+        p {
+          margin-bottom: 5px;
+        }
+
+        .textArea {
+          width: 100%;
+          resize: none;
+          border: solid 1px lightgrey;
+          margin-bottom: 10px;
+        }
+
+        .inputs {
+          display: flex;
+          justify-content: space-between;
+          margin: 0 0 70px 0;
+
+          input {
+            border: solid 1px lightgrey;
+            font-size: 14px;
+            padding: 15px;
+            width: 41%;
+          }
+
+          .continue {
+            display: flex;
+            align-items: center;
+          }
+        }
+      }
+    }
+  }
+}
