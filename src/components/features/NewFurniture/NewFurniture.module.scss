@@ -4,6 +4,12 @@
   $timeoutMilis: 500;
 }
 .root {
+  .reset {
+    all: initial;
+    * {
+      all: unset;
+    }
+  }
   .panelBar {
     margin-bottom: 30px;
     position: relative;

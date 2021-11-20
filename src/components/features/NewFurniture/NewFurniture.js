@@ -6,6 +6,7 @@ import styles from './NewFurniture.module.scss';
 import variables from './NewFurniture.module.scss';
 
 import SwipeableViews from 'react-swipeable-views';
+import AsNavFor from '../AsNavFor/AsNavFor';
 
 class NewFurniture extends React.Component {
   state = {
@@ -90,6 +91,7 @@ class NewFurniture extends React.Component {
 
     return (
       <div className={styles.root}>
+        <AsNavFor className={styles.reset} />
         <div className='container'>
           <div className={styles.panelBar}>
             <div className={'row no-gutters align-items-end ' + styles.panelBarDiv}>
