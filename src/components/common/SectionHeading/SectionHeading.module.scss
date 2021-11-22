@@ -1,0 +1,150 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  margin-bottom: 30px;
+  position: relative;
+
+  .titleWrapper {
+    width: 100%;
+    border-bottom: 4px solid $new-fur-border-bottom;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+  }
+
+  .paginationWrapper {
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+    border-bottom: 4px solid $new-fur-border-bottom;
+  }
+
+  .title {
+    position: relative;
+    padding-left: 0;
+
+    h3 {
+      color: $new-fur-header;
+      text-transform: uppercase;
+      font-size: 20px;
+      line-height: 38px;
+      margin: 0;
+      letter-spacing: 1px;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 45px;
+      border-bottom: 4px solid $new-fur-underscore;
+    }
+  }
+
+  .hiddenMenu {
+    display: none;
+  }
+
+  .menu {
+    ul {
+      float: right;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      li {
+        width: 60px;
+        display: inline-block;
+        margin: 0 0.5rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-align: center;
+
+        a {
+          color: $new-fur-link;
+          position: relative;
+          text-decoration: none;
+          font-size: 18px;
+          display: block;
+
+          &.active,
+          &:hover {
+            &::before {
+              content: "";
+              position: absolute;
+              bottom: -4px;
+              left: 0;
+              width: 100%;
+              border-bottom: 4px solid $new-fur-link-hover;
+              @extend %hover;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .dots {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    ul {
+      margin: 0;
+      padding: 0 0 0 1rem;
+      list-style: none;
+      background-color: #ffffff;
+      transform: translateY(15px);
+
+      li {
+        display: inline-block;
+        margin-left: 0.5rem;
+
+        a {
+          display: block;
+          width: 13px;
+          height: 13px;
+          border-radius: 6px;
+          background-color: $new-fur-inactive-dot;
+          font-size: 0;
+
+          &.active,
+          &:hover {
+            background-color: $new-fur-active-dot;
+            @extend %hover;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px){
+  .root{
+    div{
+      padding: 10px 0 10px 0;
+    }
+  }
+}
+
+@media (max-width: 568px) {
+  .root {
+    .panelBarDiv {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .root {
+    .menu {
+      ul {
+        li {
+          a {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}

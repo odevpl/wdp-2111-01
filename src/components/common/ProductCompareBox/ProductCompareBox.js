@@ -1,11 +1,10 @@
+import { faHeart, faTimesCircle } from '@fortawesome/free-regular-svg-icons';
+
+import Button from '../Button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { faTimesCircle, faHeart } from '@fortawesome/free-regular-svg-icons';
 import styles from './ProductCompareBox.module.scss';
-
-import Button from '../Button/Button';
-import ProductPopup from '../../features/ProductPopup/ProcuctPopup';
 
 const ProductCompareBox = ({ id, image, remove, favorites, oldPrice, price, name }) => {
   return (

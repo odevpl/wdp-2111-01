@@ -1,31 +1,32 @@
 import React from 'react';
 import SwipeableViews from 'react-swipeable-views';
+import PropTypes from 'prop-types';
 
-const styles = {
-  slide: {
-    padding: 15,
-    minHeight: 100,
-    color: '#fff',
-  },
-  slide1: {
-    backgroundColor: '#FEA900',
-  },
-  slide2: {
-    backgroundColor: '#B3DC4A',
-  },
-  slide3: {
-    backgroundColor: '#6AC0FF',
-  },
-};
-
-function DemoSimple() {
+const Swipeable = ({ activePage, handlePageChange, pages }) => {
   return (
-    <SwipeableViews enableMouseEvents>
-      <div style={Object.assign({}, styles.slide, styles.slide1)}>slide n°1</div>
-      <div style={Object.assign({}, styles.slide, styles.slide2)}>slide n°2</div>
-      <div style={Object.assign({}, styles.slide, styles.slide3)}>slide n°3</div>
+    <SwipeableViews
+      enableMouseEvents
+      index={activePage}
+      onChangeIndex={index => {
+        handlePageChange(index);
+      }}
+      slideStyle={{ overflow: 'hidden' }}
+    >
+      {pages.map(page => (
+        <React.Fragment key={pages[activePage]}>
+          <div className='container'>
+            <div className='row'>{page}</div>
+          </div>
+        </React.Fragment>
+      ))}
     </SwipeableViews>
   );
-}
+};
 
-export default DemoSimple;
+Swipeable.propTypes = {
+  activePage: PropTypes.number,
+  handlePageChange: PropTypes.func,
+  pages: PropTypes.array,
+  // pages.map: PropTypes.node,
+};
+export default Swipeable;

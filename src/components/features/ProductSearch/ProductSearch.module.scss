@@ -13,6 +13,7 @@
     justify-content: space-around;
     flex-wrap: nowrap;
     width: 230px;
+    cursor: pointer;
 
     .icon:first-child {
       color: $primary;
@@ -33,6 +34,7 @@
         background: white;
         width: 170px;
         z-index: 1;
+        border: 1px solid $form-border-color;
       }
 
       .dropdownContent li {
@@ -89,6 +91,7 @@
 
     input {
       border: 0;
+      flex: 1;
       padding-left: 10px;
       font-size: 14px;
       outline: none;
@@ -96,6 +99,9 @@
       &::placeholder {
         color: $text-color;
       }
+    }
+    & a {
+      margin: auto 15px;
     }
 
     button {

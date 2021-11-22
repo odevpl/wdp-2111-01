@@ -1,138 +1,20 @@
 @import "../../../styles/settings.scss";
 
-.root {
-  .panelBar {
-    margin-bottom: 30px;
-    position: relative;
-
-    :global(.row) > * {
-      border-bottom: 4px solid $new-fur-border-bottom;
-    }
-
-    .heading {
-      position: relative;
-
-      h3 {
-        color: $new-fur-header;
-        text-transform: uppercase;
-        font-size: 20px;
-        line-height: 38px;
-        margin: 0;
-        letter-spacing: 1px;
-      }
-
-      &::before {
-        content: "";
-        position: absolute;
-        bottom: -4px;
-        left: 0;
-        width: 45px;
-        border-bottom: 4px solid $new-fur-underscore;
-      }
-    }
-
-    .menu {
-      text-align: center;
-      ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        li {
-          display: inline-block;
-          margin: 0 0.5rem;
-          font-weight: 600;
-
-          a {
-            color: $new-fur-link;
-            position: relative;
-            text-decoration: none;
-            font-size: 18px;
-            display: block;
-
-            &.active,
-            &:hover {
-              &::before {
-                content: "";
-                position: absolute;
-                bottom: -4px;
-                left: 0;
-                width: 100%;
-                border-bottom: 4px solid $new-fur-link-hover;
-                @extend %hover;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    .dots {
-      position: absolute;
-      right: 0;
-      top: 0;
-
-      ul {
-        margin: 0;
-        padding: 0 0 0 1rem;
-        list-style: none;
-        background-color: #ffffff;
-        transform: translateY(15px);
-
-        li {
-          display: inline-block;
-          margin-left: 0.5rem;
-
-          a {
-            display: block;
-            width: 13px;
-            height: 13px;
-            border-radius: 6px;
-            background-color: $new-fur-inactive-dot;
-            font-size: 0;
-
-            &.active,
-            &:hover {
-              background-color: $new-fur-active-dot;
-              @extend %hover;
-            }
-          }
-        }
-      }
-    }
-  }
-  .fadeIn {
-    opacity: 0;
-    transition: opacity 500ms ease-in-out;
-  }
-
-  .fadeOut {
-    opacity: 1;
-    transition: opacity 500ms ease-in-out;
-  }
-}
-
-.hiddenMenu {
-  display: none;
-}
-
-.row{
-  margin-top: -27px;
-}
-
-@media (max-width: 768px) {
-  .root {
-    .panelBar {
-      div {
+@media (max-width: 768px){
+  .root{
+    .panelBar{
+      div{
         padding: 10px 0 10px 0;
       }
     }
   }
+
 }
 
 @media (max-width: 568px) {
-  .root {
-    .panelBar {
-      .panelBarDiv {
+  .root{
+    .panelBar{
+      .panelBarDiv{
         display: flex;
         flex-direction: column;
       }
@@ -140,13 +22,13 @@
   }
 }
 
-@media (max-width: 360px) {
-  .root {
-    .panelBar {
-      .menu {
-        ul {
-          li {
-            a {
+@media (max-width: 360px){
+  .root{
+    .panelBar{
+      .menu{
+        ul{
+          li{
+            a{
               font-size: 14px;
             }
           }

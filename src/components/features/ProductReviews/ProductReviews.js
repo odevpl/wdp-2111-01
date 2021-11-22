@@ -1,8 +1,8 @@
-import React from 'react';
-import styles from './ProductReviews.module.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
 import Button from '../../common/Button/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from 'react';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+import styles from './ProductReviews.module.scss';
 
 class ProductReviews extends React.Component {
   render(stars) {

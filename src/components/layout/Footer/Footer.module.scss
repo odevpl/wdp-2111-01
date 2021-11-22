@@ -5,8 +5,10 @@
     background-color: $footer-bg;
     padding: 3rem 0;
 
-
-
+      img {
+        width: 100%;
+        height: auto;
+      }
     .menuWrapper {
       h6 {
         color: $footer-header-font-color;

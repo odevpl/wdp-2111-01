@@ -2,50 +2,19 @@ import ProductBox from '../../common/ProductBox/ProductBoxContainer';
 import ProductCompareBar from '../ProductCompareBar/ProductCompareBarContainer';
 import PropTypes from 'prop-types';
 import React from 'react';
+import SectionHeading from '../../common/SectionHeading/SectionHeading';
+import Swipeable from '../Swipeable/Swipeable';
 import styles from './NewFurniture.module.scss';
-
-import SwipeableViews from 'react-swipeable-views';
 
 class NewFurniture extends React.Component {
   state = {
     activePage: 0,
     activeCategory: 'bed',
-    activeFade: false,
   };
 
-  handlePageChange(newPage) {
-    this.setState({
-      activePage: newPage,
-      activeFade: true,
-    });
-    if (this.state.activeFade === false) {
-      setTimeout(
-        function() {
-          this.setState({ activeFade: false });
-        }.bind(this),
-        1000
-      );
-    }
-  }
-
-  handleCategoryChange(newCategory) {
-    this.setState({
-      activeCategory: newCategory,
-      activeFade: true,
-    });
-    if (this.state.activeFade === false) {
-      setTimeout(
-        function() {
-          this.setState({ activeFade: false });
-        }.bind(this),
-        1000
-      );
-    }
-  }
-
   render() {
-    const { categories, products, mode, productsPage, subpage } = this.props;
-    const { activeCategory, activePage, activeFade } = this.state;
+    const { categories, products, mode, subpage } = this.props;
+    const { activeCategory, activePage } = this.state;
     let columnNumber;
     let productsPerPage;
     let styleMenu;
@@ -70,79 +39,44 @@ class NewFurniture extends React.Component {
     if (subpage === 'homePage') {
       columnNumber = 'col-lg-3 col-sm-6 mb-5';
       productsPerPage = 4;
-      styleMenu = styles.panelBarDiv;
     } else if (subpage === 'pageShop') {
       columnNumber = 'col-lg-4 col-sm-6';
       productsPerPage = 12;
-      styleMenu = styles.hiddenMenu;
     }
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
     const pagesCount = Math.ceil(categoryProducts.length / productsPerPage);
-
-    const dots = [];
+    const pages = [];
     for (let i = 0; i < pagesCount; i++) {
-      dots.push(
-        <li key={i}>
-          {/* eslint-disable-next-line */}
-          <a
-            onClick={() => this.handlePageChange(i)}
-            className={i === activePage ? styles.active : undefined}
-          >
-            page {i}
-          </a>
-        </li>
+      pages.push(
+        categoryProducts
+          .slice(i * productsPerPage, (i + 1) * productsPerPage)
+          .map(item => (
+            <div key={item.id} className='col-lg-3 col-sm-6'>
+              <ProductBox {...item} />
+            </div>
+          ))
       );
     }
 
     return (
       <div className={styles.root}>
         <div className='container'>
-          <div className={styles.panelBar}>
-            <div className={'row no-gutters align-items-end ' + styleMenu}>
-              <div className={'col-md-3 col-sm-12 ' + styles.heading}>
-                <h3>New furniture</h3>
-              </div>
-              <div className={'col ' + styles.menu}>
-                <ul>
-                  {categories.map(item => (
-                    <li key={item.id}>
-                      {/* eslint-disable-next-line */}
-                      <a
-                        className={
-                          item.id === activeCategory ? styles.active : undefined
-                        }
-                        onClick={() => this.handleCategoryChange(item.id)}
-                      >
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className={'col-auto ' + styles.dots}>
-                <ul>{dots}</ul>
-              </div>
-            </div>
-          </div>
-          <SwipeableViews
-            enableMouseEvents
-            index={activePage}
-            onChangeIndex={index => {
-              this.handlePageChange(index);
-            }}
-            slideStyle={{ overflow: 'hidden' }}
-          >
-            <div className={`row ${styles.row} ${activeFade ? styles.fadeIn : styles.fadeOut}`} >
-              {categoryProducts
-                .slice(activePage * productsPerPage, (activePage + 1) * productsPerPage)
-                .map(item => (
-                  <div key={item.id} className={columnNumber}>
-                    <ProductBox {...item} />
-                  </div>
-                ))}
-            </div>
-          </SwipeableViews>
+          <SectionHeading
+            title={'New furniture'}
+            pagesCount={pagesCount}
+            categories={categories}
+            handleCategoryChange={activeCategory => this.setState({ activeCategory })}
+            handlePageChange={activePage => this.setState({ activePage })}
+            activeCategory={activeCategory}
+            activePage={activePage}
+            subpage={subpage}
+          />
+          <Swipeable
+            activePage={activePage}
+            handlePageChange={activePage => this.setState({ activePage })}
+            pages={pages}
+          />
         </div>
         <ProductCompareBar />
       </div>

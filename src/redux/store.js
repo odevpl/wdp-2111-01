@@ -8,7 +8,6 @@ import feedbacksReducer from './feedbacksRedux';
 import initialState from './initialState';
 import modeReducer from './modeRedux';
 import productsReducer from './productsRedux';
-//import compareReducer from './compareRedux';
 
 // define reducers
 const reducers = {
@@ -19,7 +18,6 @@ const reducers = {
   mode: modeReducer,
   brands: brandsReducer,
   feedbacks: feedbacksReducer,
-  //compare: compareReducer,
 };
 
 // add blank reducers for initial state properties without reducers

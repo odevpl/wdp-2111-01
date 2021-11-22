@@ -11,6 +11,8 @@ class Promoted extends React.Component {
         sliderLeft: {
           id: 'left',
           dots: true,
+          slidesToShow: 1,
+          slidesToScroll: 3,
           infinite: true,
           autoplay: true,
           autoplaySpeed: 3000,
@@ -25,12 +27,6 @@ class Promoted extends React.Component {
           ),
           customPaging: () => {
             return <a> </a>;
-          },
-          afterChange: index => {
-            const activeDot = document.querySelectorAll(`.${styles.sliderdots} li`)[
-              index
-            ];
-            activeDot.classList.add(styles.activeDot);
           },
         },
         sliderRight: {
