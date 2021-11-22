@@ -6,6 +6,7 @@ import FilterByCategories from '../../features/FilterByCategories/FilterByCatego
 import FilterBySize from '../../features/FilterBySize/FilterBySize';
 import styles from './ProductList.module.scss';
 import NewFurniture from '../../features/NewFurniture/NewFurnitureContainer';
+import Banner from '../../features/Banner/Banner';
 
 const ProductList = () => (
   <div className={styles.root}>
@@ -13,7 +14,7 @@ const ProductList = () => (
       <div className='row'>
         <div className='col-12'>
           <div className={styles.banner}>
-            <span>BANNER</span>
+            <Banner />
           </div>
         </div>
         <div className='col-9'>
